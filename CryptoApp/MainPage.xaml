@@ -5,11 +5,32 @@
     xmlns:local="using:CryptoApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Hello World" Margin="0,280,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF972121" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Hello World" Click="Button_Click" HorizontalAlignment="Center"/>
+        <Button Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top"/>
+
+        <Grid x:Name="parentGrid1" Margin="0,131,0,461">
+
+        </Grid>
+        <TextBlock x:Name="top" TextWrapping="Wrap" Text="Top Cryptocurrencies by trading volume" Margin="79,100,811,570" FontWeight="Bold" FontSize="20"/>
+        <TextBlock TextWrapping="Wrap" Text="The prices are calculated using the data collected from popular cryptocurrency exchanges" Margin="79,131,395,559" FontSize="18"/>
+        <Button x:Name="btn1" Content="Button" Margin="184,464,0,0" VerticalAlignment="Top"/>
+
+
 
     </Grid>
 </Page>

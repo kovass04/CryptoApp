@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="CryptoApp.InfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CryptoApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button Content="Home" Margin="0,421,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textblock1" TextWrapping="Wrap" Text="BTC" Margin="38,78,1169,616" FontSize="18" FontWeight="Bold"/>
+        <TextBlock TextWrapping="Wrap" Text="Bitcoin" Margin="126,78,1081,616" FontSize="18" FocusVisualPrimaryBrush="#FFAC8686"/>
+        <TextBlock TextWrapping="Wrap" Text="Price USD" Margin="54,134,1157,564"/>
+        <TextBlock TextWrapping="Wrap" Text="Change 1h" Margin="384,134,827,564"/>
+        <TextBlock TextWrapping="Wrap" Text="Change 24h" Margin="657,134,544,564"/>
+        <TextBlock TextWrapping="Wrap" Text="Change 7d" Margin="860,134,341,564"/>
+        <TextBlock TextWrapping="Wrap" Text="Volume 24h" Margin="1147,134,54,564"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="49,172,0,0" TextWrapping="Wrap" Text="$19,353.15" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,219,0,0" TextWrapping="Wrap" Text="Market Cap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,270,0,0" TextWrapping="Wrap" Text="Fully Diluted Market Cap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="384,172,0,0" TextWrapping="Wrap" Text="-0.52%" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="657,172,0,0" TextWrapping="Wrap" Text="-1.70%" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="871,172,0,0" TextWrapping="Wrap" Text="-1.09%" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1128,172,0,0" TextWrapping="Wrap" Text="$13,514,315,951" VerticalAlignment="Top" FontWeight="Bold" Width="109"/>
+        <TextBlock HorizontalAlignment="Left" Margin="473,219,0,0" TextWrapping="Wrap" Text="$371,514,315,951" VerticalAlignment="Top" FontWeight="Bold" Width="129"/>
+        <TextBlock HorizontalAlignment="Left" Margin="473,270,0,0" TextWrapping="Wrap" Text="$406,514,315,951" VerticalAlignment="Top" FontWeight="Bold" Width="129"/>
+        <TextBlock HorizontalAlignment="Left" Margin="640,219,0,0" TextWrapping="Wrap" Text="Circulating Supply" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="640,270,0,0" TextWrapping="Wrap" Text="Total Supply" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="640,325,0,0" TextWrapping="Wrap" Text="Max Supply" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1148,219,0,0" TextWrapping="Wrap" Text="19,179,075" VerticalAlignment="Top" FontWeight="Bold" Width="81"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1149,270,0,0" TextWrapping="Wrap" Text="19,179,075" VerticalAlignment="Top" FontWeight="Bold" Width="81"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1147,325,0,0" TextWrapping="Wrap" Text="21,000,000" VerticalAlignment="Top" FontWeight="Bold" Width="81"/>
+
+    </Grid>
+
+</Page>

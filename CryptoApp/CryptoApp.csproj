@@ -119,9 +119,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfoPage.xaml.cs">
+      <DependentUpon>InfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OpenAPIs\assets.cs" />
+    <Compile Include="OpenAPIs\assetsoverview.cs" />
+    <Compile Include="OpenAPIs\exchanges.cs" />
+    <Compile Include="OpenAPIs\markets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="InfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,6 +164,30 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenAPIs\assets.json">
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>https://cryptingup.com/api/assets</SourceUri>
+    </None>
+    <None Include="OpenAPIs\assetsoverview.json">
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>https://cryptingup.com/api/assetsoverview</SourceUri>
+    </None>
+    <None Include="OpenAPIs\exchanges.json">
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>https://cryptingup.com/api/exchanges</SourceUri>
+    </None>
+    <None Include="OpenAPIs\markets.json">
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>https://cryptingup.com/api/markets</SourceUri>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

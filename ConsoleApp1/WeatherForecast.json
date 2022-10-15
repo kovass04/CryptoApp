@@ -1,0 +1,134 @@
+{
+  "assets": [
+    {
+      "quote": {
+        "USD": {
+          "price": 19108.309999999998,
+          "volume_24h": 8139443947.5157175,
+          "market_cap": 366445067247.22,
+          "fully_diluted_market_cap": 401274509999.99994
+        },
+        "NZD": {
+          "price": 34094.95753299999,
+          "volume_24h": 14523209835.552294,
+          "market_cap": 653847933489.2146,
+          "fully_diluted_market_cap": 715994108192.9999
+        },
+        "CAD": {
+          "price": 26359.925506966476,
+          "volume_24h": 11228367978.363523,
+          "market_cap": 505511197747.5789,
+          "fully_diluted_market_cap": 553558435646.2959
+        },
+        "JPY": {
+          "price": 2806857.8725199923,
+          "volume_24h": 1195619200338.4758,
+          "market_cap": 53827848818078.5,
+          "fully_diluted_market_cap": 58944015322919.84
+        },
+        "EUR": {
+          "price": 19687.313901853508,
+          "volume_24h": 8386078516.691617,
+          "market_cap": 377548776772.08704,
+          "fully_diluted_market_cap": 413433591938.92365
+        },
+        "GBP": {
+          "price": 17256.201854912266,
+          "volume_24h": 7350513349.693151,
+          "market_cap": 330926704096.5385,
+          "fully_diluted_market_cap": 362380238953.15753
+        },
+        "AUD": {
+          "price": 30456.34364042078,
+          "volume_24h": 12973292871.398975,
+          "market_cap": 584069281554.383,
+          "fully_diluted_market_cap": 639583216448.8363
+        }
+      },
+      "asset_id": "BTC",
+      "name": "Bitcoin",
+      "description": "Bitcoin uses peer-to-peer technology to operate with no central authority or banks; managing transactions and the issuing of bitcoins is carried out collectively by the network.\r\nBitcoin is open-source; its design is public, nobody owns or controls Bitcoin and everyone can take part. Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment system.",
+      "website": "",
+      "ethereum_contract_address": "",
+      "pegged": "",
+      "price": 19108.309999999998,
+      "volume_24h": 8139443947.5157175,
+      "change_1h": -0.029768755885750384,
+      "change_24h": -0.011773595331586308,
+      "change_7d": -4.156278707695698,
+      "total_supply": 19177262,
+      "circulating_supply": 19177262,
+      "max_supply": 21000000,
+      "market_cap": 366445067247.22,
+      "fully_diluted_market_cap": 401274509999.99994,
+      "status": "recent",
+      "created_at": "2021-09-21T01:27:16",
+      "updated_at": "2022-10-12T15:33:40.913533"
+    },
+    {
+      "quote": {
+        "USD": {
+          "price": 0.9999949999793504,
+          "volume_24h": 7834239256.467607,
+          "market_cap": 68421516980.46593,
+          "fully_diluted_market_cap": 68421516980.46593
+        },
+        "CAD": {
+          "price": 1.3794937232436892,
+          "volume_24h": 10807337917.599127,
+          "market_cap": 94387525148.93906,
+          "fully_diluted_market_cap": 94387525148.93906
+        },
+        "GBP": {
+          "price": 0.9030686425720882,
+          "volume_24h": 7074891185.525188,
+          "market_cap": 61789635411.72544,
+          "fully_diluted_market_cap": 61789635411.72544
+        },
+        "EUR": {
+          "price": 1.0302960055011388,
+          "volume_24h": 8071625770.374314,
+          "market_cap": 70494768110.59863,
+          "fully_diluted_market_cap": 70494768110.59863
+        },
+        "NZD": {
+          "price": 1.784291078463155,
+          "volume_24h": 13978633105.315151,
+          "market_cap": 122084512748.24535,
+          "fully_diluted_market_cap": 122084512748.24535
+        },
+        "AUD": {
+          "price": 1.5938715332791686,
+          "volume_24h": 12486833370.206577,
+          "market_cap": 109055653459.46115,
+          "fully_diluted_market_cap": 109055653459.46115
+        },
+        "JPY": {
+          "price": 146.89126553696636,
+          "volume_24h": 1150787072861.0366,
+          "market_cap": 10050573472294.576,
+          "fully_diluted_market_cap": 10050573472294.576
+        }
+      },
+      "asset_id": "USDT",
+      "name": "Tether",
+      "description": "Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate the use of fiat currencies in a digital manner. Tether works to disrupt the conventional financial system via a more modern approach to money. Tether has made headway by giving customers the ability to transact with traditional currencies across the blockchain, without the inherent volatility and complexity typically associated with a digital currency. As the first blockchain-enabled platform to facilitate the digital use of traditional currencies (a familiar, stable accounting unit), Tether has democratised cross-border transactions across the blockchain.",
+      "website": "",
+      "ethereum_contract_address": "",
+      "pegged": "USD",
+      "price": 0.9999949999793504,
+      "volume_24h": 7834239256.467607,
+      "change_1h": 0.00400018901854591,
+      "change_24h": 0.011501384210193238,
+      "change_7d": -0.0069995495793427984,
+      "total_supply": 68421859091.17427,
+      "circulating_supply": 68421859091.17427,
+      "max_supply": 0,
+      "market_cap": 68421516980.46593,
+      "fully_diluted_market_cap": 68421516980.46593,
+      "status": "recent",
+      "created_at": "2021-09-21T01:53:50",
+      "updated_at": "2022-10-12T15:32:45.514666"
+    }
+  ]
+}
