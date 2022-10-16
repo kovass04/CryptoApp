@@ -29,7 +29,7 @@ namespace CryptoApp
         {
             this.InitializeComponent();
         }
-        int i;
+       
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
@@ -68,7 +68,7 @@ namespace CryptoApp
 
                 StackPanel stackPanel = new StackPanel();
                 stackPanel.Orientation = Orientation.Horizontal;
-                stackPanel.Name = i.ToString();
+                
                 //.Children.Add(textBlock);
                 textBlock.Text = item.Asset_id;
                 textBlock.Width = 480;
@@ -110,7 +110,7 @@ namespace CryptoApp
                 textBlock5.Width = 120;
                 stackPanel.Children.Add(textBlock5);
 
-                huawei.Children.Add(stackPanel);
+                AssetPanel.Children.Add(stackPanel);
 
 
 

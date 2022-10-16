@@ -246,6 +246,16 @@ namespace CryptoApp
         {
             Frame.Navigate(typeof(AssetsPage));
         }
+
+        private void Exchanges_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ExchangesPage));
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 
     
