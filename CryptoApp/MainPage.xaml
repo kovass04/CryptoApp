@@ -16,21 +16,29 @@
                 <GradientStop Color="#FF972121" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Content="Hello World" Click="Button_Click" HorizontalAlignment="Center"/>
-        <Button Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top"/>
-
-        <Grid x:Name="parentGrid1" Margin="0,131,0,461">
-
-        </Grid>
-        <TextBlock x:Name="top" TextWrapping="Wrap" Text="Top Cryptocurrencies by trading volume" Margin="79,100,811,570" FontWeight="Bold" FontSize="20"/>
+        <Button  Content="Hello World" Click="Button_Click" HorizontalAlignment="Center" Margin="0,488,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Assets" Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top" Click="Assets_Click"/>
+        <Button x:Name="Markets" Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button x:Name="Exchanges" Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button x:Name="Search" Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top"/>
+        <Button x:Name="Home" Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock TextWrapping="Wrap" Text="Top Cryptocurrencies by trading volume" Margin="79,100,811,570" FontWeight="Bold" FontSize="20"/>
         <TextBlock TextWrapping="Wrap" Text="The prices are calculated using the data collected from popular cryptocurrency exchanges" Margin="79,131,395,559" FontSize="18"/>
-        <Button x:Name="btn1" Content="Button" Margin="184,464,0,0" VerticalAlignment="Top"/>
 
 
+        <Canvas Margin="0,215,0,268">
+            <Button x:Name="btn1" Content="Button" Width="120" Height="40" Click="btn1_Click" Canvas.Left="100" Canvas.Top="40"/>
+            <Button x:Name="btn2" Content="Button" Width="120" Height="40" Click="btn2_Click" Canvas.Left="250" Canvas.Top="40"/>
+            <Button x:Name="btn3" Content="Button" Width="120" Height="40" Click="btn3_Click" Canvas.Left="400" Canvas.Top="40" VerticalAlignment="Top"/>
+            <Button x:Name="btn4" Content="Button" Width="120" Height="40" VerticalAlignment="Top" Click="btn4_Click" Canvas.Left="550" Canvas.Top="40"/>
+            <Button x:Name="btn5" Content="Button" Width="120" Height="40" Click="btn5_Click" Canvas.Left="700" Canvas.Top="40" VerticalAlignment="Top"/>
+            <Button x:Name="btn6" Content="Button" Width="120" Height="40" VerticalAlignment="Top" Click="btn6_Click" Canvas.Left="190" Canvas.Top="98"/>
+            <Button x:Name="btn7" Content="Button" Width="120" Height="40" VerticalAlignment="Top" Click="btn7_Click" Canvas.Left="340" Canvas.Top="98"/>
+            <Button x:Name="btn8" Content="Button" Width="120" Height="40" Click="btn8_Click" Canvas.Left="490" Canvas.Top="98" VerticalAlignment="Top"/>
+            <Button x:Name="btn9" Content="Button" Width="120" Height="40" Click="btn9_Click" Canvas.Left="640" Canvas.Top="98" VerticalAlignment="Top"/>
+            <Button x:Name="btn10" Content="Button" Width="120" Height="40" Click="btn10_Click" Canvas.Left="784" Canvas.Top="98" VerticalAlignment="Top"/>
+        </Canvas>
+        <TextBlock TextWrapping="Wrap" Text="Top 10" Margin="84,192,1082,501" FontWeight="Bold"/>
 
     </Grid>
 </Page>
