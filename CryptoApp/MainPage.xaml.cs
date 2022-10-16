@@ -153,11 +153,6 @@ namespace CryptoApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Info pi = new Info { Asset_id = "BTS"};
-            Frame.Navigate(typeof(InfoPage), pi);
-
-            /*Info pi = new Info { Asset_id = btn1.Content.ToString() };
-            Frame.Navigate(typeof(InfoPage), pi);*/
 
         }
 
@@ -255,6 +250,11 @@ namespace CryptoApp
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void Markets_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MarketsPage));
         }
     }
 
