@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CryptoApp.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Net.Http;
 using static CryptoApp.MainPage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -32,94 +34,97 @@ namespace CryptoApp
        
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile file = await storageFolder.GetFileAsync("assets.json");
-            string text = await Windows.Storage.FileIO.ReadTextAsync(file);
 
-            var temp = (MyArray)JsonConvert.DeserializeObject(text, typeof(MyArray));
+            string url = "https://cryptingup.com/api/assets";
+
+            HttpClient client = new HttpClient();
+
+            string response = await client.GetStringAsync(url);
+
+            var temp = JsonConvert.DeserializeObject<Rootobject>(response);
 
 
-            //have bug
-            //
-
-            foreach (Assets_json item in temp.Assets)
+            foreach (Asset item in temp.assets)
             {
-
-                /*test1.Text = item.Asset_id;
-                test2.Text = item.Name;
-                test3.Text = item.Change_1h;
-                test4.Text = item.Change_24h;
-                test5.Text = item.Change_7d;
-                test6.Text = item.Market_cap;*/
-
-                //Button button = new Button();
-                TextBlock textBlock = new TextBlock();
-                TextBlock textBlock1 = new TextBlock();
-                TextBlock textBlock2 = new TextBlock();
-                TextBlock textBlock3 = new TextBlock();
-                TextBlock textBlock4 = new TextBlock();
-                TextBlock textBlock5 = new TextBlock();
-                //button.Name = "btns" + i;
-
-                //textBlock.Text = item.Asset_id;
-
-
-                //button.Click += Button_Click;
-
+                Button Asset_id_Block = new Button();
+                TextBlock Name_Block = new TextBlock();
+                TextBlock Price_Block = new TextBlock();
+                TextBlock Change_1h_Block = new TextBlock();
+                TextBlock Change_24h_Block = new TextBlock();
+                TextBlock Change_7d_Block = new TextBlock();
+                TextBlock Volume_24h_Block = new TextBlock();
+                TextBlock Market_cap_Block = new TextBlock();
                 StackPanel stackPanel = new StackPanel();
+
                 stackPanel.Orientation = Orientation.Horizontal;
-                
-                //.Children.Add(textBlock);
-                textBlock.Text = item.Asset_id;
-                textBlock.Width = 480;
-                //button.Margin = new Thickness(i * 120, 0, 0, 0);
-                stackPanel.Children.Add(textBlock);
-                textBlock1.Text = item.Name;
-                textBlock1.Width = 190;
-                stackPanel.Children.Add(textBlock1);
 
-                if(item.Change_1h.Length>=5)
-                    textBlock2.Text = item.Change_1h.Substring(0, item.Change_1h.Length - 13);
-                else
-                    textBlock2.Text = item.Change_1h;
+                Asset_id_Block.Content = item.asset_id;
+                Asset_id_Block.Width = 80;
+                Asset_id_Block.Click += Assets_info_Click;
+                stackPanel.Children.Add(Asset_id_Block);
 
-                textBlock2.Width = 120;
-                stackPanel.Children.Add(textBlock2);
+                Name_Block.Text = item.name;
+                Name_Block.Width = 380;
+                stackPanel.Children.Add(Name_Block);
 
-                if (item.Change_24h.Length >= 5)
-                    textBlock3.Text = item.Change_24h.Substring(0, item.Change_24h.Length - 13);
-                else
-                    textBlock3.Text = item.Change_24h;
+                Price_Block.Text = "$" + string.Format("{0:f2}", item.price);
+                Price_Block.Width = 140;
+                stackPanel.Children.Add(Price_Block);
 
-                textBlock3.Width = 100;
-                stackPanel.Children.Add(textBlock3);
+                Change_1h_Block.Text = string.Format("{0:f2}", item.change_1h) + "%";
+                Change_1h_Block.Width = 110;
+                stackPanel.Children.Add(Change_1h_Block);
 
-                if (item.Change_7d.Length >= 5)
-                    textBlock4.Text = item.Change_7d.Substring(0, item.Change_7d.Length - 13);
-                else
-                    textBlock4.Text = item.Change_7d;
+                Change_24h_Block.Text = string.Format("{0:f2}", item.change_24h) + "%";
+                Change_24h_Block.Width = 90;
+                stackPanel.Children.Add(Change_24h_Block);
 
-                textBlock4.Width = 120;
-                stackPanel.Children.Add(textBlock4);
+                Change_7d_Block.Text = string.Format("{0:f2}", item.change_7d) + "%";
+                Change_7d_Block.Width = 100;
+                stackPanel.Children.Add(Change_7d_Block);
 
-                //
-                //volume 24
-                //
-                //add Market_cap in billion price
-                textBlock5.Text = item.Market_cap;
-                textBlock5.Width = 120;
-                stackPanel.Children.Add(textBlock5);
+                Volume_24h_Block.Text = "$" + string.Format("{0:f3}", item.volume_24h/1000000000) + "b";
+                Volume_24h_Block.Width = 150;
+                stackPanel.Children.Add(Volume_24h_Block);
+
+                Market_cap_Block.Text = "$" + string.Format("{0:f2}", item.market_cap / 1000000000) + "b";
+                Market_cap_Block.Width = 120;
+                stackPanel.Children.Add(Market_cap_Block);
 
                 AssetPanel.Children.Add(stackPanel);
-
-
 
             }
 
         }
-            private void Home_Click(object sender, RoutedEventArgs e)
+        private void Assets_info_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Frame.Navigate(typeof(AssetsInfoPage), button.Content);
+
+        }
+        private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void Assets_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AssetsPage));
+        }
+
+        private void Markets_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MarketsPage));
+        }
+
+        private void Exchanges_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ExchangesPage));
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SearchPage));
         }
     }
 }

@@ -1,34 +1,33 @@
 ﻿<Page
-    x:Class="CryptoApp.MainPage"
+    x:Class="CryptoApp.SearchPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CryptoApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="#FF972121" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid >
         <Button x:Name="Assets" Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top" Click="Assets_Click"/>
         <Button x:Name="Markets" Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top" Click="Markets_Click"/>
         <Button x:Name="Exchanges" Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top" Click="Exchanges_Click"/>
         <Button x:Name="Search" Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top" Click="Search_Click"/>
         <Button x:Name="Home" Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" Click="Home_Click"/>
-        <TextBlock TextWrapping="Wrap" Text="Top Cryptocurrencies by trading volume" Margin="79,100,811,570" FontWeight="Bold" FontSize="20"/>
-        <TextBlock TextWrapping="Wrap" Text="The prices are calculated using the data collected from popular cryptocurrency exchanges" Margin="79,131,395,559" FontSize="18"/>
+        <TextBox x:Name="sbar" TextChanged="sbar_TextChanged" PlaceholderText="Enter the item to search" Grid.Row="0" Margin="0,60,0,627"/>
+        <Button Content="Search" Width="400" Click="Button_Click" HorizontalAlignment="Stretch" Margin="414,118,466,0" VerticalAlignment="Top"/>
+        <ListView x:Name="mylst" Margin="49,182,56,56">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
 
-
-        <Canvas x:Name="canvas_btn" Margin="0,215,0,268">
-         
-        </Canvas>
-        <TextBlock TextWrapping="Wrap" Text="Top 10" Margin="114,176,1052,517" FontWeight="Bold" FontSize="20"/>
-        
+                        <StackPanel Orientation="Vertical">
+                            <Button x:Name="Asset_id_text" Content="{Binding asset_id}" FontSize="30" Click="Assets_info_Click" Background="Black"/>
+                            <TextBlock x:Name="Name_text" Text="{Binding name}" FontSize="20"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

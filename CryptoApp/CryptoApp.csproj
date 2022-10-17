@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AssetsInfoPage.xaml.cs">
+      <DependentUpon>AssetsInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AssetsPage.xaml.cs">
       <DependentUpon>AssetsPage.xaml</DependentUpon>
     </Compile>
@@ -131,14 +134,17 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MarketsInfoPage.xaml.cs">
+      <DependentUpon>MarketsInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MarketsPage.xaml.cs">
       <DependentUpon>MarketsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OpenAPIs\assets.cs" />
-    <Compile Include="OpenAPIs\assetsoverview.cs" />
-    <Compile Include="OpenAPIs\exchanges.cs" />
-    <Compile Include="OpenAPIs\markets.cs" />
+    <Compile Include="Model\assettsData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -160,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AssetsInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AssetsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,7 +186,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MarketsInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MarketsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,27 +207,7 @@
       <Version>13.0.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="OpenAPIs\assets.json">
-      <CodeGenerator>NSwagCSharp</CodeGenerator>
-      <SourceUri>https://cryptingup.com/api/assets</SourceUri>
-    </None>
-    <None Include="OpenAPIs\assetsoverview.json">
-      <CodeGenerator>NSwagCSharp</CodeGenerator>
-      <SourceUri>https://cryptingup.com/api/assetsoverview</SourceUri>
-    </None>
-    <None Include="OpenAPIs\exchanges.json">
-      <CodeGenerator>NSwagCSharp</CodeGenerator>
-      <SourceUri>https://cryptingup.com/api/exchanges</SourceUri>
-    </None>
-    <None Include="OpenAPIs\markets.json">
-      <CodeGenerator>NSwagCSharp</CodeGenerator>
-      <SourceUri>https://cryptingup.com/api/markets</SourceUri>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

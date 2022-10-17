@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CryptoApp.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Net.Http;
 using static CryptoApp.MainPage;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
@@ -35,73 +37,58 @@ namespace CryptoApp
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile file = await storageFolder.GetFileAsync("markets.json");
-            string text = await Windows.Storage.FileIO.ReadTextAsync(file);
+            string url = "https://cryptingup.com/api/markets";
 
-            var temp = (Markets_array)JsonConvert.DeserializeObject(text, typeof(Markets_array));
+            HttpClient client = new HttpClient();
 
-            foreach (Markets_json item in temp.Markets)
+            string response = await client.GetStringAsync(url);
+
+            var temp = JsonConvert.DeserializeObject<Rootobject>(response);
+
+            foreach (Market item in temp.markets)
             {
-                TextBlock textBlock = new TextBlock();
-                TextBlock textBlock1 = new TextBlock();
-                TextBlock textBlock2 = new TextBlock();
-                TextBlock textBlock3 = new TextBlock();
-                TextBlock textBlock4 = new TextBlock();
-                TextBlock textBlock5 = new TextBlock();
-                Button button = new Button();
-
+                TextBlock Symbol_Block = new TextBlock();
+                TextBlock Price_Block = new TextBlock();
+                TextBlock Price_unconverted_Block = new TextBlock();
+                TextBlock Change_24h_Block = new TextBlock();
+                TextBlock Spread_Block = new TextBlock();
+                TextBlock Volume_24h_Block = new TextBlock();
+                Button Exchange_id = new Button();
 
                 StackPanel stackPanel = new StackPanel();
                 stackPanel.Orientation = Orientation.Horizontal;
 
 
-                textBlock.Text = item.Symbol;
-                textBlock.Width = 200;
+                Symbol_Block.Text = item.symbol;
+                Symbol_Block.Width = 200;
+                stackPanel.Children.Add(Symbol_Block);
 
-                stackPanel.Children.Add(textBlock);
-                textBlock1.Text = item.Price.ToString() + "$";
-                textBlock1.Width = 240;
-                stackPanel.Children.Add(textBlock1);
-
-
-                textBlock2.Text = string.Format("{0:f2}", item.Price_unconverted);
+                Price_Block.Text = item.price.ToString() + "$";
+                Price_Block.Width = 240;
+                stackPanel.Children.Add(Price_Block);
 
 
- 
+                Price_unconverted_Block.Text = string.Format("{0:f2}", item.price_unconverted);
+                Price_unconverted_Block.Width = 210;
+                stackPanel.Children.Add(Price_unconverted_Block);
 
-                textBlock2.Width = 210;
-                stackPanel.Children.Add(textBlock2);
-
-                /*if (item.Change_24h.Length >= 5)
-                    textBlock3.Text = item.Change_24h.Substring(0, item.Change_24h.Length - 13);
-                else*/
-                    textBlock3.Text = item.Change_24h.Substring(0, item.Change_24h.Length - 13) + "%";
-
-                textBlock3.Width = 140;
-                stackPanel.Children.Add(textBlock3);
-
-               
-                textBlock4.Text = string.Format("{0:f2}", item.Spread) + "%";
-
-                textBlock4.Width = 100;
-                stackPanel.Children.Add(textBlock4);
-
-                //
-                //volume 24
-                //
-                //add Market_cap in billion price
-                textBlock5.Text = string.Format("{0:f0}", item.Volume_24h) + "$";
-                textBlock5.Width = 140;
-                stackPanel.Children.Add(textBlock5);
+                Change_24h_Block.Text = string.Format("{0:f2}", item.change_24h) + "%";
+                Change_24h_Block.Width = 140;
+                stackPanel.Children.Add(Change_24h_Block);
 
 
-                button.Width = 120;
-                button.Content = item.Exchange_id;
+                Spread_Block.Text = string.Format("{0:f2}", item.spread) + "%";
+                Spread_Block.Width = 100;
+                stackPanel.Children.Add(Spread_Block);
 
-                button.Click += Exchange_id_Click;
+                Volume_24h_Block.Text = "$" + string.Format("{0:f2}", item.volume_24h/1000000000) + "b";
+                Volume_24h_Block.Width = 140;
+                stackPanel.Children.Add(Volume_24h_Block);
 
-                stackPanel.Children.Add(button);
+                Exchange_id.Width = 120;
+                Exchange_id.Content = item.exchange_id;
+                Exchange_id.Click += Exchange_id_Click;
+                stackPanel.Children.Add(Exchange_id);
 
                 MarketsPanel.Children.Add(stackPanel);
 
@@ -109,13 +96,10 @@ namespace CryptoApp
 
 
             }
-       
         private void Exchange_id_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-   
-
-            Frame.Navigate(typeof(MainPage), button.Content);
+            Frame.Navigate(typeof(MarketsInfoPage), button.Content);
 
         }
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -138,35 +122,9 @@ namespace CryptoApp
             Frame.Navigate(typeof(ExchangesPage));
         }
 
-        public class Markets_json
+        private void Search_Click(object sender, RoutedEventArgs e)
         {
-            public string Symbol { get; set; }
-            public float Price { get; set; }
-            public double Price_unconverted { get; set; }
-            public string Change_24h { get; set; }
-            public double Spread { get; set; }
-            public double Volume_24h { get; set; }
-            public string Exchange_id { get; set; }
-
-
-      /*"exchange_id": "BINANCE",
-      "symbol": "BTC-USDT",
-      "base_asset": "BTC",
-      "quote_asset": "USDT",
-      "price_unconverted": 19114.455,
-      "price": 19114.359425989467,
-      "change_24h": 0.07348005960080194,
-      "spread": 0.0024588418645425385,
-      "volume_24h": 4668527102.607471,
-      "status": "recent",
-      "created_at": "2021-09-21T01:21:25",
-      "updated_at": "2022-10-12T15:31:37.175188"*/
-    
-        }
-        public class Markets_array
-        {
-            public List<Markets_json> Markets { get; set; }
-
+            Frame.Navigate(typeof(SearchPage));
         }
     }
 }

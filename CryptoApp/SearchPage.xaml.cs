@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -16,8 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Net.Http;
-using static CryptoApp.MainPage;
-using static System.Net.WebRequestMethods;
+using static CryptoApp.MarketsPage;
 using CryptoApp.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,15 +24,16 @@ namespace CryptoApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class InfoPage : Page
+    public sealed partial class SearchPage : Page
     {
-        public InfoPage()
+        public SearchPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); 
         }
+
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            string url = "https://cryptingup.com/api/assets";
+            string url = "https://cryptingup.com/api/assetsoverview";
 
             HttpClient client = new HttpClient();
 
@@ -43,33 +41,23 @@ namespace CryptoApp
 
             var temp = JsonConvert.DeserializeObject<Rootobject>(response);
 
-            if (e.Parameter != null)
-            {
-                foreach (Asset item in temp.assets)
-                {
-                    if (e.Parameter.ToString() == item.asset_id)
-                    {
-                        Name.Text = item.name.ToString();
-                        Asset_id.Text = item.asset_id.ToString();
-                        Price.Text = "$" + item.price.ToString();
-                        Change_1h.Text = string.Format("{0:f2}", item.change_1h) + "%";
-                        Change_24h.Text = string.Format("{0:f2}", item.change_24h) + "%";
-                        Change_7d.Text = string.Format("{0:f2}", item.change_7d) + "%";
-                        Volume_24h.Text = "$" + string.Format("{0:f0}", item.volume_24h);
-                        Market_cap.Text = "$" + string.Format("{0:f0}", item.market_cap) ;
-                        Fully_diluted_market_cap.Text = "$" + string.Format("{0:f0}", item.fully_diluted_market_cap) ;
-                        Circulating_supply.Text = string.Format("{0:f0}", item.circulating_supply);
-                        Total_supply.Text = string.Format("{0:f0}", item.total_supply);
-                        Max_supply.Text = string.Format("{0:f0}", item.max_supply);
-                        break;
-                    }
+            names = new List<Person>();
 
-                }
+            foreach (Asset item in temp.assets)
+            {
+                names.Add(new Person() { asset_id = item.asset_id, name = item.name });
 
             }
 
-
+            mylst.ItemsSource = names;
         }
+
+        public class Person
+        {
+            public string name { get; set; }
+            public string asset_id { get; set; }
+        }
+        List<Person> names;
 
         private void Assets_Click(object sender, RoutedEventArgs e)
         {
@@ -96,6 +84,24 @@ namespace CryptoApp
             Frame.Navigate(typeof(SearchPage));
         }
 
+        private void sbar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mylst.ItemsSource = names;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var cont = from s in names where s.name.Contains(sbar.Text) select s;//LINQ Query  
+
+            mylst.ItemsSource = cont;
+        }
+
+        private void Assets_info_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Frame.Navigate(typeof(AssetsInfoPage), button.Content);
+
+        }
 
     }
 }

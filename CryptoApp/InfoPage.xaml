@@ -9,35 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Home" Margin="0,421,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top"/>
-        <Button Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Name" TextWrapping="Wrap" Text="BTC" Margin="38,78,1169,616" FontSize="18" FontWeight="Bold"/>
-        <TextBlock x:Name="Asset_id" TextWrapping="Wrap" Text="Bitcoin" Margin="200,78,1007,616" FontSize="18" FocusVisualPrimaryBrush="#FFAC8686"/>
+        <TextBlock x:Name="Name" TextWrapping="Wrap" Text="BTC" Margin="38,78,1097,616" FontSize="18" FontWeight="Bold"/>
+        <TextBlock x:Name="Asset_id" TextWrapping="Wrap" Text="Bitcoin" Margin="200,78,926,616" FontSize="18" FocusVisualPrimaryBrush="#FFAC8686"/>
         <TextBlock TextWrapping="Wrap" Text="Price USD" Margin="54,134,1157,564"/>
         <TextBlock TextWrapping="Wrap" Text="Change 1h" Margin="384,134,827,564"/>
         <TextBlock TextWrapping="Wrap" Text="Change 24h" Margin="657,134,544,564"/>
         <TextBlock TextWrapping="Wrap" Text="Change 7d" Margin="860,134,341,564"/>
         <TextBlock TextWrapping="Wrap" Text="Volume 24h" Margin="1147,134,54,564"/>
 
-        <TextBlock x:Name="Price" HorizontalAlignment="Left" Margin="49,172,0,0" TextWrapping="Wrap" Text="$19,353.15" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="Price" HorizontalAlignment="Left" Margin="49,172,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="49,219,0,0" TextWrapping="Wrap" Text="Market Cap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="49,270,0,0" TextWrapping="Wrap" Text="Fully Diluted Market Cap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Change_1h" HorizontalAlignment="Left" Margin="384,172,0,0" TextWrapping="Wrap" Text="-0.52%" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBlock x:Name="Change_24h" HorizontalAlignment="Left" Margin="657,172,0,0" TextWrapping="Wrap" Text="-1.70%" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBlock x:Name="Change_7d" HorizontalAlignment="Left" Margin="871,172,0,0" TextWrapping="Wrap" Text="-1.09%" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBlock x:Name="Volume_24h" HorizontalAlignment="Left" Margin="1128,172,0,0" TextWrapping="Wrap" Text="$13,514,315,951" VerticalAlignment="Top" FontWeight="Bold" Width="109"/>
-        <TextBlock x:Name="Market_cap" HorizontalAlignment="Left" Margin="473,219,0,0" TextWrapping="Wrap" Text="$371,514,315,951" VerticalAlignment="Top" FontWeight="Bold" Width="129"/>
-        <TextBlock x:Name="Fully_diluted_market_cap" HorizontalAlignment="Left" Margin="473,270,0,0" TextWrapping="Wrap" Text="$406,514,315,951" VerticalAlignment="Top" FontWeight="Bold" Width="129"/>
+        <TextBlock x:Name="Change_1h" HorizontalAlignment="Left" Margin="384,172,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="Change_24h" HorizontalAlignment="Left" Margin="657,172,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="Change_7d" HorizontalAlignment="Left" Margin="871,172,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="Volume_24h" HorizontalAlignment="Left" Margin="1128,172,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" Width="148"/>
+        <TextBlock x:Name="Market_cap" HorizontalAlignment="Left" Margin="473,219,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" Width="156"/>
+        <TextBlock x:Name="Fully_diluted_market_cap" HorizontalAlignment="Left" Margin="473,270,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" Width="158"/>
         <TextBlock HorizontalAlignment="Left" Margin="640,219,0,0" TextWrapping="Wrap" Text="Circulating Supply" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="640,270,0,0" TextWrapping="Wrap" Text="Total Supply" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="640,325,0,0" TextWrapping="Wrap" Text="Max Supply" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Circulating_supply" HorizontalAlignment="Left" Margin="1148,219,0,0" TextWrapping="Wrap" Text="19,179,075" VerticalAlignment="Top" FontWeight="Bold" Width="81"/>
-        <TextBlock x:Name="Total_supply" HorizontalAlignment="Left" Margin="1149,270,0,0" TextWrapping="Wrap" Text="19,179,075" VerticalAlignment="Top" FontWeight="Bold" Width="81"/>
-        <TextBlock x:Name="Max_supply" HorizontalAlignment="Left" Margin="1147,325,0,0" TextWrapping="Wrap" Text="21,000,000" VerticalAlignment="Top" FontWeight="Bold" Width="81"/>
+        <TextBlock x:Name="Circulating_supply" HorizontalAlignment="Left" Margin="1128,219,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" Width="101"/>
+        <TextBlock x:Name="Total_supply" HorizontalAlignment="Left" Margin="1128,270,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" Width="102"/>
+        <TextBlock x:Name="Max_supply" HorizontalAlignment="Left" Margin="1128,325,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" Width="100"/>
+        <Button x:Name="Assets" Content="Assets" Margin="98,20,0,0" Background="Black" VerticalAlignment="Top" Click="Assets_Click"/>
+        <Button x:Name="Markets" Content="Markets" Margin="184,20,0,0" Background="Black" VerticalAlignment="Top" Click="Markets_Click"/>
+        <Button x:Name="Exchanges" Content="Exchanges" Margin="271,20,0,0" Background="Black" VerticalAlignment="Top" Click="Exchanges_Click"/>
+        <Button x:Name="Search" Content="Search" Margin="382,20,0,0" Background="Black" VerticalAlignment="Top" Click="Search_Click"/>
+        <Button x:Name="Home" Content="Home" Margin="10,14,0,0" Background="Black" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" Click="Home_Click"/>
 
     </Grid>
 
